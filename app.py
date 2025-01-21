@@ -54,7 +54,7 @@ def query_index(query):
     Información relevante:
     {' '.join(context_texts)}
 
-    Por favor, proporciona una respuesta clara y concisa, utilizando solo la información proporcionada.
+    Por favor, proporciona una respuesta clara y concisa, utilizando solo la información proporcionada sin usar su conocimiento interno. Si el contexto no es suficiente para responder la pregunta contesta "Disculpa, no tengo la información necesaria para responder esa pregunta".
     """
 
     # 10. Generar la respuesta
