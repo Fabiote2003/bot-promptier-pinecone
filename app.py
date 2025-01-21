@@ -20,7 +20,6 @@ def query_index(query):
     )
     llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0)
 
-    
     # 3. Conectar al índice existente
     index_name = "promptier-index"
     index = pc.Index(index_name)
@@ -28,7 +27,7 @@ def query_index(query):
     # 4. Inicializar el modelo de embeddings
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     
-    # 5. Generar el embedding de la consulta usando OpenAI (igual que en la ingesta)
+    # 5. Generar el embedding de la consulta usando OpenAI
     query_embedding = embeddings.embed_query(query)
     
     # 6. Realizar la búsqueda en el índice
@@ -68,14 +67,6 @@ def query_index(query):
         "result": response.content,
         "source_documents": context_texts
     }
-    # 8. Mostrar los resultados
-    # print(f"\nConsulta: {query}\n")
-    # print("Resultados encontrados:")
-    # for match in results.matches:
-    #     print(f"\nScore: {match.score}")
-    #     print(f"Texto: {match.metadata['text']}")
-    #     print("-" * 50)
-
   
 app = Flask(__name__)
 
